@@ -1,0 +1,14 @@
+ls
+fdk
+/home/lz139/ece551/mp_miniproject/testcases/hello
+./testcases/hello
+./fdk
+/home/lz139/ece551/mp_miniproject/fdk
+echo a b 23
+echo    a      b   23
+echo a\ b c\ \ d
+echo a\  b c \ d
+echo a\b\\
+   echo a  b
+./testcases/hi a\ b   \ \ cd     \e\\f\ \ \ \ \ g
+../029_num_seq/step1

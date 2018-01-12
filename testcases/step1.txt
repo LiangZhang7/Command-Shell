@@ -1,0 +1,3 @@
+./testcases/hello
+
+/home/lz139/ece551/mp_miniproject/testcases/hello

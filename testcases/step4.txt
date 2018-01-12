@@ -1,0 +1,8 @@
+who > ./outputs/users
+wc -l < ./outputs/users
+sort < ./outputs/users
+ls note 2> ./outputs/errorout
+sort < ./outputs/users | less > ./outputs/sort.txt
+ls -al /etc | less > ./outputs/ls.txt
+ls -l / | tee -a /home/lz139/homefile | more
+ls | ls | ls | ls

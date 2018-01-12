@@ -1,0 +1,14 @@
+echo $PATH
+echo 34$PATH...$PATH
+echo dr$PATH\ $PATH  jk
+set ll 66
+echo kj$ll$PATH
+echo kj$ll34$PATH
+set TERM aaa
+echo $TERM
+export TERM
+env
+set PATH /usr/local/bin
+echo $PATH
+export PATH
+ls

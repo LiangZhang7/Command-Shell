@@ -1,0 +1,24 @@
+cd
+cd /home/lz139/ece551/mp_miniproject
+cd ..
+cd /home/lz139/ece551/mp_miniproject
+cd .
+set aaa \ jd
+echo $aaa
+export aaa
+env
+set aaa \\     kds   sl
+  echo $aaa
+   set   set    set
+echo $set
+set jA_1      .,f2  Ae-=   /.llt
+echo $jA_1
+set ... jdk
+echo 3j$aaa\ $aaa,-879
+echo d\ 4$bbb
+export bbb
+set aa
+export aa
+env
+echo $aa
+echo dej$.dk
