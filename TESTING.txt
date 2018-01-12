@@ -1,0 +1,376 @@
+Step1:
+
+1. Run ./myShell
+it prints
+*******************
+myShell:/home/lz139/ece551/mp_miniproject $
+*******************
+which is correct because it prompts with the current directory
+
+2. Type exit
+*******************
+it will exit myShell
+*******************
+which is correct because if the user types exit, the shell should exit
+
+3. Run ./myShell < ./testcases/step1.txt
+it prints
+******************************************************************************
+myShell:/home/lz139/ece551/mp_miniproject $ hello
+Program exited with status 1
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ hello
+Program exited with status 1
+myShell:/home/lz139/ece551/mp_miniproject $ EOF is encountered reading from stdin
+***************************************************************************
+which is correct because
+When empty command is entered, the loop will continue.
+Both "./testcases/hello" and "/home/lz139/ece551/mp_miniproject/testcases/hello" in step1.txt are executed correctly. And "Program exited with status 1" is printed after the execution. Also when EOF is encountered, the shell exits.
+
+**************************************************************************
+
+Step2:
+
+Run ./myShell < ./testcases/step2.txt
+it prints
+***************************************************************************
+myShell:/home/lz139/ece551/mp_miniproject $ builtin.cpp  builtin.o      check.h  commandShell.txt  execution.h  Makefile  myShell.cpp  numerics.txt  parse.cpp  parse.o  testcases
+builtin.h    check.cpp  check.o  execution.cpp     execution.o  myShell   myShell.o    outputs       parse.h    README   TESTING.txt
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ Command fdk not found
+myShell:/home/lz139/ece551/mp_miniproject $ hello
+Program exited with status 1
+myShell:/home/lz139/ece551/mp_miniproject $ hello
+Program exited with status 1
+myShell:/home/lz139/ece551/mp_miniproject $ Command ./fdk not found
+myShell:/home/lz139/ece551/mp_miniproject $ Command /home/lz139/ece551/mp_miniproject/fdk not found
+myShell:/home/lz139/ece551/mp_miniproject $ a b 23
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ a b 23
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ a b c  d
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ a  b c  d
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ ab\
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ a b
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ a b
+  cd
+e\f     g
+Program exited with status 1
+myShell:/home/lz139/ece551/mp_miniproject $ seq1(20) = 77
+seq1(-20) = -83
+seq1(0) = -3
+seq1(-4) = -19
+seq1(7) = 25
+printSeq1Range(2,6)
+5,9,13,17
+printSeq1Range(0,4)
+-3,1,5,9
+printSeq1Range(7,2)
+
+printSeq1Range(2,2)
+
+printSeq1Range(-2,6)
+-11,-7,-3,1,5,9,13,17
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ EOF is encountered reading from stdin
+**************************************************************************
+which is correct because
+It can check whether the commands user types in are existed. And it can execute the commands with a relative or absolute path before them. And it could also execute the commands without a path before them.
+The command can take arguments separated by white spaces. And white space which is escaped with a \ is literally included in the argument.
+
+****************************************************************************
+
+Step3-1:
+
+Run ./myShell < ./testcases/step3-1.txt
+
+it prints
+
+******************************************************************************************************************************
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139 $ myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551 $ myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ \ jd
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ LESSOPEN=| /usr/bin/lesspipe %s
+MAIL=/var/mail/lz139
+SSH_CLIENT=10.197.24.189 59157 22
+USER=lz139
+SHLVL=1
+LD_LIBRARY_PATH=/usr/lib/debug
+OLDPWD=/home/lz139/ece551/mp_miniproject/testcases
+HOME=/home/lz139
+SSH_TTY=/dev/pts/77
+VISUAL=emacs -nw
+LOGNAME=lz139
+_=/usr/bin/valgrind
+XDG_SESSION_ID=27095
+TERM=xterm
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+XDG_RUNTIME_DIR=/run/user/1156
+GLIBCPP_FORCE_NEW=1
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SHELL=/bin/bash
+LESSCLOSE=/usr/bin/lesspipe %s %s
+PWD=/home/lz139/ece551/mp_miniproject
+SSH_CONNECTION=10.197.24.189 59157 152.3.77.223 22
+EDITOR=emacs -nw
+GLIBCXX_FORCE_NEW=1
+LD_PRELOAD=
+aaa=\ jd
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ \\     kds   sl
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ set
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ .,f2  Ae-=   /.llt
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ Invalid variable name: ...
+myShell:/home/lz139/ece551/mp_miniproject $ 3j\\     kds   sl \\     kds   sl,-879
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ variable: bbb not found
+d 4
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ variable bbb not exists
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ LESSOPEN=| /usr/bin/lesspipe %s
+MAIL=/var/mail/lz139
+SSH_CLIENT=10.197.24.189 59157 22
+USER=lz139
+SHLVL=1
+LD_LIBRARY_PATH=/usr/lib/debug
+OLDPWD=/home/lz139/ece551/mp_miniproject/testcases
+HOME=/home/lz139
+SSH_TTY=/dev/pts/77
+VISUAL=emacs -nw
+LOGNAME=lz139
+_=/usr/bin/valgrind
+XDG_SESSION_ID=27095
+TERM=xterm
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+XDG_RUNTIME_DIR=/run/user/1156
+GLIBCPP_FORCE_NEW=1
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SHELL=/bin/bash
+LESSCLOSE=/usr/bin/lesspipe %s %s
+PWD=/home/lz139/ece551/mp_miniproject
+SSH_CONNECTION=10.197.24.189 59157 152.3.77.223 22
+EDITOR=emacs -nw
+GLIBCXX_FORCE_NEW=1
+LD_PRELOAD=
+aaa=\ jd
+aa=
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ dej$.dk
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ EOF is encountered reading from stdin
+*******************************************************************************************************************************************
+
+which is correct because:
+
+1. It can execute cd, cd ., cd .., cd /home/lz139/ece551/mp_miniproject correctly
+2. It can set variables and export them to environment
+3. It can check whether the variable name is valid
+4. It can check whether the varialbes exists
+5. The varable name will stop at characters which are not letters, underscores, and numbers
+
+*******************************************************************************************************************************************
+
+Step3-2:
+
+Run ./myShell < ./testcases/step3-2.txt
+
+it prints
+
+*******************************************************************************************************************************************
+myShell:/home/lz139/ece551/mp_miniproject $ /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ 34/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games.../usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ dr/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games jk
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ kj66/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ variable: ll34 not found
+kj
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ aaa
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ LESSOPEN=| /usr/bin/lesspipe %s
+MAIL=/var/mail/lz139
+SSH_CLIENT=10.197.24.189 59157 22
+USER=lz139
+SHLVL=1
+LD_LIBRARY_PATH=/usr/lib/debug
+OLDPWD=/home/lz139/ece551/mp_miniproject/testcases
+HOME=/home/lz139
+SSH_TTY=/dev/pts/77
+VISUAL=emacs -nw
+LOGNAME=lz139
+_=/usr/bin/valgrind
+XDG_SESSION_ID=27095
+TERM=aaa
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+XDG_RUNTIME_DIR=/run/user/1156
+GLIBCPP_FORCE_NEW=1
+LANG=en_US.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SHELL=/bin/bash
+LESSCLOSE=/usr/bin/lesspipe %s %s
+PWD=/home/lz139/ece551/mp_miniproject
+SSH_CONNECTION=10.197.24.189 59157 152.3.77.223 22
+EDITOR=emacs -nw
+GLIBCXX_FORCE_NEW=1
+LD_PRELOAD=
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ /usr/local/bin
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ myShell:/home/lz139/ece551/mp_miniproject $ Command ls not found
+myShell:/home/lz139/ece551/mp_miniproject $ EOF is encountered reading from stdin
+*******************************************************************************************************************************************
+
+which is correct because:
+
+1. It can replace the environment variables with their values
+2. It can reset and export the environment variables
+3. When PATH is reset, it does affect where the shell searches for programs
+
+*******************************************************************************************************************************************
+
+Step4:
+
+Run ./myShell < ./testcases/step4.txt
+
+it prints
+
+*******************************************************************************************************************************************
+myShell:/home/lz139/ece551/mp_miniproject $ Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ 83
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ adw18    pts/42       2017-11-30 21:21 (cpe-98-27-51-121.nc.res.rr.com)
+as820    pts/7        2017-11-30 21:50 (cpe-24-163-61-110.nc.res.rr.com)
+bcf13    pts/17       2017-11-30 18:47 (cpe-174-109-97-184.nc.res.rr.com)
+bcf13    pts/38       2017-11-30 18:58 (cpe-174-109-97-184.nc.res.rr.com)
+bcf13    pts/50       2017-11-30 19:03 (cpe-174-109-97-184.nc.res.rr.com)
+bcf13    pts/9        2017-11-30 18:47 (cpe-174-109-97-184.nc.res.rr.com)
+cl414    pts/26       2017-11-30 18:55 (10.197.47.69)
+cl423    pts/45       2017-11-30 17:14 (cpe-24-163-83-38.nc.res.rr.com)
+cmg88    pts/4        2017-11-30 07:42 (cpe-24-163-75-89.nc.res.rr.com)
+dl263    pts/90       2017-11-30 20:42 (10.197.121.194)
+dl263    pts/91       2017-11-30 20:42 (10.197.121.194)
+dp200    pts/11       2017-11-30 19:08 (10.197.85.88)
+ds337    pts/15       2017-11-30 20:22 (rrcs-70-62-108-114.midsouth.biz.rr.com)
+ds337    pts/73       2017-11-30 20:08 (rrcs-70-62-108-114.midsouth.biz.rr.com)
+ds337    pts/84       2017-11-30 20:40 (rrcs-70-62-108-114.midsouth.biz.rr.com)
+ds337    pts/85       2017-11-30 20:26 (rrcs-70-62-108-114.midsouth.biz.rr.com)
+dw243    pts/28       2017-11-30 19:59 (cpe-107-15-250-96.nc.res.rr.com)
+dw243    pts/32       2017-11-30 19:43 (cpe-107-15-250-96.nc.res.rr.com)
+hl297    pts/14       2017-11-30 12:05 (10.197.2.75)
+hl297    pts/3        2017-11-30 16:19 (10.197.2.75)
+hl297    pts/70       2017-11-30 13:17 (10.197.2.75)
+hw184    pts/68       2017-11-30 17:56 (cpe-24-163-73-230.nc.res.rr.com)
+hz147    pts/63       2017-11-30 22:00 (cpe-24-163-88-135.nc.res.rr.com)
+js751    pts/41       2017-11-30 22:06 (cpe-71-70-230-19.nc.res.rr.com)
+jt251    pts/36       2017-11-30 12:39 (pse-jt251.wired.duke.local)
+jt251    pts/56       2017-11-30 12:48 (pse-jt251.wired.duke.local)
+jw562    pts/78       2017-11-30 16:40 (10.197.51.160)
+jz230    pts/80       2017-11-30 19:34 (10.197.109.47)
+kj127    pts/19       2017-11-30 21:43 (10.197.7.156)
+kwn8     pts/58       2017-11-30 12:55 (pse-kwn8c.egr.duke.edu)
+kwn8     pts/81       2017-11-30 15:14 (pse-kwn8c.egr.duke.edu)
+kwn8     pts/83       2017-11-30 15:14 (pse-kwn8c.egr.duke.edu)
+lc294    pts/62       2017-11-30 22:04 (cpe-24-163-76-31.nc.res.rr.com)
+lc294    pts/8        2017-11-30 21:42 (cpe-24-163-76-31.nc.res.rr.com)
+lc294    pts/93       2017-11-30 21:05 (cpe-24-163-76-31.nc.res.rr.com)
+lz139    pts/13       2017-11-30 21:45 (10.197.24.189)
+lz139    pts/69       2017-11-30 20:13 (10.197.24.189)
+lz139    pts/77       2017-11-30 20:10 (10.197.24.189)
+mc514    pts/72       2017-11-30 21:25 (10.193.48.242)
+mjc61    pts/46       2017-11-30 20:57 (cpe-24-163-84-117.nc.res.rr.com)
+ms735    pts/65       2017-11-30 16:51 (10.197.72.245)
+nai2     pts/48       2017-11-30 21:05 (10.197.114.149)
+nai2     pts/49       2017-11-30 21:05 (10.197.114.149)
+nrd10    pts/16       2017-11-30 20:37 (cpe-24-163-88-107.nc.res.rr.com)
+ny33     pts/47       2017-11-30 21:50 (cpe-24-163-86-235.nc.res.rr.com)
+pc174    pts/53       2017-11-30 19:07 (10.197.28.178)
+sc543    pts/87       2017-11-30 20:32 (10.197.67.144)
+sc553    pts/24       2017-11-30 19:44 (198.86.29.23)
+st283    pts/2        2017-11-30 21:41 (10.197.87.11)
+sw360    pts/74       2017-11-30 19:57 (10.197.53.208)
+sw360    pts/76       2017-11-30 19:57 (10.197.53.208)
+sw361    pts/23       2017-11-30 15:31 (cpe-24-163-87-45.nc.res.rr.com)
+sz132    pts/59       2017-11-30 20:05 (cpe-174-109-119-60.nc.res.rr.com)
+tx17     pts/34       2017-11-30 19:52 (10.197.56.231)
+tx17     pts/43       2017-11-30 21:46 (10.197.56.231)
+wy47     pts/94       2017-11-30 21:33 (cpe-98-26-38-0.nc.res.rr.com)
+xl214    pts/92       2017-11-30 21:32 (cpe-98-26-48-35.nc.res.rr.com)
+xl219    pts/20       2017-11-30 19:25 (cpe-174-109-123-120.nc.res.rr.com)
+xy78     pts/79       2017-11-30 19:32 (cpe-174-99-35-100.nc.res.rr.com)
+xz139    pts/22       2017-11-27 14:25 (xinyuan-xps-8700.wired.duke.edu)
+xz139    pts/67       2017-11-30 16:51 (xinyuan-xps-8700.wired.duke.edu)
+yd94     pts/51       2017-11-30 21:03 (cpe-24-163-84-2.nc.res.rr.com)
+yd94     pts/88       2017-11-30 21:01 (cpe-24-163-84-2.nc.res.rr.com)
+yf83     pts/64       2017-11-30 19:11 (cpe-24-163-84-242.nc.res.rr.com)
+yg95     pts/37       2017-11-30 22:02 (10.197.106.56)
+yl495    pts/29       2017-11-30 21:10 (cpe-174-99-45-233.nc.res.rr.com)
+yl506    pts/1        2017-11-30 18:57 (cpe-24-163-88-135.nc.res.rr.com)
+ys205    pts/61       2017-11-30 20:55 (cpe-24-163-84-2.nc.res.rr.com)
+yw215    pts/60       2017-11-30 20:17 (10.194.151.130)
+yw215    pts/82       2017-11-30 20:17 (10.194.151.130)
+yw262    pts/18       2017-11-30 21:57 (cpe-174-109-113-117.nc.res.rr.com)
+yz395    pts/89       2017-11-30 20:42 (10.197.114.24)
+zc86     pts/55       2017-11-30 20:02 (cpe-24-163-83-159.nc.res.rr.com)
+zf29     pts/6        2017-11-30 19:17 (cpe-174-109-111-103.nc.res.rr.com)
+zg50     pts/71       2017-11-30 17:20 (cpe-24-163-62-174.nc.res.rr.com)
+zj32     pts/40       2017-11-30 19:03 (cpe-174-99-42-118.nc.res.rr.com)
+zn17     pts/21       2017-11-30 18:19 (cpe-24-163-73-230.nc.res.rr.com)
+zn17     pts/66       2017-11-30 19:15 (cpe-24-163-73-230.nc.res.rr.com)
+zp30     pts/39       2017-11-30 20:15 (cpe-174-109-119-60.nc.res.rr.com)
+zp30     pts/54       2017-11-30 21:51 (cpe-174-109-119-60.nc.res.rr.com)
+zz114    pts/0        2017-11-30 17:57 (cpe-75-182-90-112.nc.res.rr.com)
+zz114    pts/27       2017-11-30 10:35 (10.197.10.27)
+zz134    pts/30       2017-11-30 21:46 (cpe-24-163-83-159.nc.res.rr.com)
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ Program exited with status 2
+myShell:/home/lz139/ece551/mp_miniproject $ Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ total 157
+drwxr-xr-x   2 root root  4096 Sep  2 12:01 bin
+drwxr-xr-x   4 root root  1024 Nov 22 06:59 boot
+drwxr-xr-x  19 root root  3960 Nov  6 21:13 dev
+drwxr-xr-x 114 root root  8192 Nov 29 06:45 etc
+drwxr-xr-x 190 root root  8192 Sep 23 19:54 home
+lrwxrwxrwx   1 root root    33 Nov 21 06:18 initrd.img -> boot/initrd.img-4.4.0-101-generic
+lrwxrwxrwx   1 root root    32 Nov  1 06:31 initrd.img.old -> boot/initrd.img-4.4.0-98-generic
+drwxr-xr-x  20 root root  4096 Jul  9 19:58 lib
+drwxr-xr-x   2 root root    34 Jun 30 08:43 lib64
+drwxr-xr-x   3 root root    35 Jun 30 08:41 media
+drwxr-xr-x   2 root root     6 Jun 30 08:41 mnt
+drwxr-xr-x   2 root root     6 Jun 30 08:41 opt
+dr-xr-xr-x 640 root root     0 Nov  6 21:13 proc
+drwx------   9 root root  4096 Nov 23 09:28 root
+drwxr-xr-x  24 root root   900 Nov 30 22:07 run
+drwxr-xr-x   2 root root  8192 Sep  2 12:01 sbin
+drwxr-xr-x   3 root root    29 Jul 19 20:29 srv
+dr-xr-xr-x  13 root root     0 Nov 24 20:15 sys
+drwxrwxrwt 169 root root 77824 Nov 30 22:07 tmp
+drwxr-xr-x  10 root root   105 Jun 30 08:41 usr
+drwxr-xr-x  15 root root   204 Oct 31 15:52 var
+lrwxrwxrwx   1 root root    30 Nov 21 06:18 vmlinuz -> boot/vmlinuz-4.4.0-101-generic
+lrwxrwxrwx   1 root root    29 Nov  1 06:31 vmlinuz.old -> boot/vmlinuz-4.4.0-98-generic
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ builtin.cpp  builtin.o      check.h  commandShell.txt  execution.h  Makefile  myShell.cpp  numerics.txt  parse.cpp  parse.o  testcases
+builtin.h    check.cpp  check.o  execution.cpp     execution.o  myShell   myShell.o    outputs       parse.h    README   TESTING.txt
+Program exited with status 0
+myShell:/home/lz139/ece551/mp_miniproject $ EOF is encountered reading from stdin
+*******************************************************************************************************************************************
+
+which is correct because:
+
+1. it can do input, output and error output redirection(the output files are in the directory outputs)
+2. it can do pipeline
+3. it can do the combination of redirection and pipeline
+4. it can do multi pipeline

@@ -1,0 +1,11 @@
+SOURCES=myShell.cpp parse.cpp check.cpp execution.cpp builtin.cpp
+OBJS=$(patsubst %.cpp, %.o, $(SOURCES))
+CPPFLAGS=-ggdb3 -Wall -pedantic -std=gnu++98
+
+compress: $(OBJS)
+        g++ $(CPPFLAGS) -o myShell $(OBJS)
+%.o: %.cpp parse.h check.h execution.h builtin.h
+        g++ $(CPPFLAGS) -c $<
+
+clean:
+        rm compress *~ *.o
